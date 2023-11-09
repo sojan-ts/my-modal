@@ -11,7 +11,7 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 100;
-        display: flex;
+        display: none; /* Start with modal hidden */
         justify-content: center;
         align-items: center;
       }
@@ -28,17 +28,23 @@
     </style>
   </head>
   <body>
-    <div class="modalOverlay">
+    <button onclick="openModal()">Open Modal</button>
+    <div class="modalOverlay" id="myModal">
       <div class="modalContent">
-        <button onclick="closeModal()">close</button>
+        <button onclick="closeModal()">Close</button>
         <p>This is a sample alert.</p>
       </div>
     </div>
 
     <script>
+      function openModal() {
+        var modalOverlay = document.getElementById("myModal");
+        modalOverlay.style.display = "flex"; // Display the modal
+      }
+
       function closeModal() {
-        var modalOverlay = document.querySelector(".modalOverlay");
-        modalOverlay.style.display = "none";
+        var modalOverlay = document.getElementById("myModal");
+        modalOverlay.style.display = "none"; // Hide the modal
       }
     </script>
   </body>
